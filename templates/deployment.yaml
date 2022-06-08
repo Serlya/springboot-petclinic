@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot
+  namespace: {{ .Values.springboot.meta.namespace }}
+  labels:
+    app: springboot
+spec:
+  selector:
+    matchLabels:
+      app: springboot
+  replicas: {{ .Values.springboot.meta.replicas }}
+  template:
+    metadata:
+      labels:
+        app: springboot
+    spec: 
+      containers:
+      - image: "{{ .Values.springboot.image.repository }}"
+        imagePullPolicy: {{ .Values.springboot.image.pullPolicy }}
+        name: springboot
+        resources:
+            {}
+        

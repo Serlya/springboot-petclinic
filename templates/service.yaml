@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: springboot
+  name: springboot
+  namespace: {{ .Values.springboot.meta.namespace }}
+spec:
+  ports:
+  - port: {{ .Values.springboot.service.port }}
+    protocol: TCP
+    targetPort: {{ .Values.springboot.service.targetport }}
+  selector:
+    app: springboot
+  type: LoadBalancer

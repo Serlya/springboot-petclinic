@@ -1,0 +1,12 @@
+springboot:
+  meta:
+    namespace: petclinic
+  image:
+    repository: arey/springboot-petclinic
+    pullPolicy: IfNotPresent
+  service:
+    type: LoadBalancer
+    port: 8080
+    targetport: 8080
+  replicas: 2
+  
